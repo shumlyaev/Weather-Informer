@@ -12,7 +12,7 @@ function createWeatherCard(city) {
         function(data) {
             let date = new Date();
             $('.title h3').html('Weather in ' + data.name);
-            $('.refr-data').html(monthToName(date.getMonth()) + ' ' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes());
+            $('.refr-data').html(monthToName(date.getMonth()) + ' ' + date.getDate() + ' ' + date.getHours() + ':' + zeroAdder(date.getMinutes()));
             $('.temp').html(plusAdder(Math.floor((data.main.temp - 273) * 10) / 10));
             $('.icon').html('<img src="https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png"></img>');
             $('.cloudiness').html(data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1));
@@ -26,6 +26,11 @@ function createWeatherCard(city) {
 function plusAdder(x) {
     if (x >= 0) 
         return '+' + x;
+    else return x;
+}
+function zeroAdder(x) {
+    if (x < 10) 
+        return '0' + x;
     else return x;
 }
 function monthToName(x) {
@@ -42,6 +47,7 @@ function monthToName(x) {
     if (x == 10) return 'Now';
     if (x == 11) return 'Dec';
 }
+
 /*
 <div class="weather-card col-lg-6 col-md-6 col-sm-12">
         <div class="row">

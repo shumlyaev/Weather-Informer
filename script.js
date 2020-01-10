@@ -2,6 +2,7 @@ $(document).ready(function() {
     createWeatherCard("Moscow");
 });
 function createWeatherCard(city) {
+    $('.main-block').append('<div class="weather-card col-lg-6 col-md-6 col-sm-12"><div class="row"><div class="title col-lg-12 col-md-12 col-sm-12 col-12"><h3></h3><div class="refr-data"></div></div></div><div class="row"><div class="temp col-lg-3 col-md-4 col-sm-3 col-4"></div><div class="icon col-lg-3 col-md-3 col-sm-3 col-3"></div><div class="info-1 col-lg-6 col-md-5 col-sm-6 col-5"><div class="cloudiness col-lg-12 col-md-12 col-sm-12 col-12"></div><div class="feels_like col-lg-12 col-md-12 col-sm-12 col-12"></div></div></div><div class="info-2 row col-lg-12 col-md-12 col-sm-12 col-12"><div class="wind col-lg-12 col-md-12 col-sm-12 col-12"></div><div class="humidity col-lg-12 col-md-12 col-sm-12 col-12"></div><div class="pressure col-lg-12 col-md-12 col-sm-12 col-12"></div></div></div>');
     $.get(
         "https://api.openweathermap.org/data/2.5/weather",
         {
@@ -41,3 +42,26 @@ function monthToName(x) {
     if (x == 10) return 'Now';
     if (x == 11) return 'Dec';
 }
+/*
+<div class="weather-card col-lg-6 col-md-6 col-sm-12">
+        <div class="row">
+                <div class="title col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3></h3>
+                        <div class="refr-data"></div>
+                </div>      
+        </div>
+        <div class="row">
+                <div class="temp col-lg-3 col-md-4 col-sm-3 col-4"></div>
+                <div class="icon col-lg-3 col-md-3 col-sm-3 col-3"></div>
+                <div class="info-1 col-lg-6 col-md-5 col-sm-6 col-5">
+                        <div class="cloudiness col-lg-12 col-md-12 col-sm-12 col-12"></div>
+                        <div class="feels_like col-lg-12 col-md-12 col-sm-12 col-12"></div>
+                </div>
+        </div>
+        <div class="info-2 row col-lg-12 col-md-12 col-sm-12 col-12">                                                
+                <div class="wind col-lg-12 col-md-12 col-sm-12 col-12"></div>
+                <div class="humidity col-lg-12 col-md-12 col-sm-12 col-12"></div>
+                <div class="pressure col-lg-12 col-md-12 col-sm-12 col-12"></div>                                              
+        </div>
+</div>
+*/
